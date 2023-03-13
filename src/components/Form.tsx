@@ -1,7 +1,7 @@
 const Form = () => {
   return (
     <div className="rounded-md mb-5">
-      <div className="content flex items-center justify-between bg-white p-4 rounded-md">
+      <div className="content flex items-center justify-between bg-white p-4 rounded-md dark:bg-semiDarkBlue">
         <div className="mr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ const Form = () => {
           <input
             type="text"
             placeholder="Search Github username..."
-            className="mr-4 w-full focus:outline-none"
+            className="mr-4 w-full focus:outline-none dark:bg-semiDarkBlue dark:text-white"
           />
           <button className="bg-lightBlue text-white py-2 px-4 rounded-md">
             Search

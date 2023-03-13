@@ -2,45 +2,48 @@ import { Link } from "react-router-dom";
 
 const Results = () => {
   return (
-    <div className="p-6 bg-white rounded-md">
+    <div className="p-6 bg-white rounded-md dark:bg-semiDarkBlue dark:text-white">
       <div className="flex mb-5">
         <div className="">
           <img src="" alt="" />
         </div>
-        <div className="">
-          <p className="text-2xl font-bold">The Octocat</p>
-          <Link to="/" className="text-lightBlue">
-            @octocat
-          </Link>
+        <div className="md:flex md:justify-between md:items-center w-full">
+          <div>
+            <p className="text-2xl font-bold">The Octocat</p>
+            <Link to="/" className="text-lightBlue">
+              @octocat
+            </Link>
+          </div>
+
           <div className="">
             <p className="text-gray">Joined 25 Jan 2011</p>
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="md:ml-40">
         <div className="mb-5">
-          <p className="text-stone text-sm">
+          <p className="text-stone text-sm dark:text-white">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
             distinctio ipsam voluptates unde ut beatae, consequatur libero
             voluptatibus nemo illo?
           </p>
         </div>
-        <div className="flex items-center justify-around bg-darkWhite px-2 py-5 rounded-md mb-5">
+        <div className="flex items-center justify-around bg-darkWhite px-2 py-5 rounded-md mb-5 dark:bg-darkBlue">
           <div className="flex flex-col items-center">
-            <p className="text-stone text-sm">Repos</p>
+            <p className="text-stone text-sm dark:text-gray">Repos</p>
             <p className="text-xl font-bold">8</p>
           </div>
           <div className="flex flex-col items-center">
-            <p className="text-stone text-sm">Followers</p>
+            <p className="text-stone text-sm dark:text-gray">Followers</p>
             <p className="text-xl font-bold">3938</p>
           </div>
           <div className="flex flex-col items-center">
-            <p className="text-stone text-sm">Following</p>
+            <p className="text-stone text-sm dark:text-gray">Following</p>
             <p className="text-xl font-bold">9</p>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-center text-sm">
-          <div className="my-2 flex text-stone">
+        <div className="text-sm md:grid md:grid-rows-2 md:grid-flow-col ">
+          <div className="my-2 flex text-stone dark:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -62,7 +65,7 @@ const Results = () => {
             </svg>
             <p className="ml-2">San Francisco</p>
           </div>
-          <div className="my-2 text-stone flex">
+          <div className="my-2 text-stone flex dark:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -80,7 +83,7 @@ const Results = () => {
 
             <p className="ml-2">https://github.blog</p>
           </div>
-          <div className="my-2 flex text-stone">
+          <div className="my-2 flex text-stone dark:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -102,7 +105,7 @@ const Results = () => {
             </svg>
             <p className="ml-2">Not Available</p>
           </div>
-          <div className="my-2 flex text-stone">
+          <div className="my-2 flex text-stone dark:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
