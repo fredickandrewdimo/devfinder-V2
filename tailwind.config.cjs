@@ -14,7 +14,7 @@ module.exports = {
         royalBlue: "#004DA9",
         white: "#FEFEFE",
         gray: "#8E94A4",
-        darkWhite: "#F5F8FF",
+        darkWhite: "#E4EAFA",
         stone: "#4F698C",
       },
     },

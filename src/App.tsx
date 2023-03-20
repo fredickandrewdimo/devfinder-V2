@@ -1,25 +1,21 @@
-import Navbar from "./components/Navbar.js";
+import Navbar from "./pages/Navbar.js";
 import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.js";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect, useState, createContext } from "react";
 
-import { useEffect, useState } from "react";
-
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+export const AppContext = createContext(null);
 
 function App() {
-  // React Query
-  const client = new QueryClient();
+  const [username, setUsername] = useState<string>("");
+  const [data, setData] = useState<null>(null);
 
-  // State for theme
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState<string | null>(null);
 
-  // User default preferred theme
+  const handleThemeSwitch: () => void = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
@@ -28,12 +24,6 @@ function App() {
     }
   }, []);
 
-  // Switch theme function
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  // Theme implementation
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -43,10 +33,11 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
-      <div className="App font-mono min-h-screen py-8 bg-darkWhite dark:bg-darkBlue">
-        <QueryClientProvider client={client}>
-          {/* pass a prop to navbar component */}
+    <AppContext.Provider
+      value={{ theme, handleThemeSwitch, data, setData, username, setUsername }}
+    >
+      <Router>
+        <div className="App font-mono min-h-screen py-8 bg-darkWhite dark:bg-darkBlue">
           <Navbar handleThemeSwitch={handleThemeSwitch} theme={theme} />
           <div className="content w-11/12 md:w-6/12 m-auto ">
             <Routes>
@@ -54,9 +45,9 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
-        </QueryClientProvider>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </AppContext.Provider>
   );
 }
 
