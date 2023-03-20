@@ -14,7 +14,8 @@ interface FormData {
 
 const Form = () => {
   // Context API
-  const { data, setData, username, setUsername } = useContext(AppContext);
+  const { setData, setIsError, setIsLoading, isError, isLoading } =
+    useContext(AppContext);
 
   // Yup validation
   const schema = yup.object().shape({
@@ -37,7 +38,6 @@ const Form = () => {
         `https://api.github.com/users/${data.username}`
       );
       const results = await response.json();
-
       setData(results);
       console.log(results);
       reset();
@@ -77,7 +77,6 @@ const Form = () => {
 
       {/* Required Error Message */}
       <p className="text-red-400 mt-3 ml-12">{errors.username?.message}</p>
-      <p>{username}</p>
     </div>
   );
 };

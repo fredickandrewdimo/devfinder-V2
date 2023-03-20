@@ -13,8 +13,16 @@ export const NoResults = () => {
   );
 };
 
+export const InvalidUsername = () => {
+  <div className="p-4">
+    <h1 className="text-center text-lg text-gray">
+      No results founds: Please enter a valid username
+    </h1>
+  </div>;
+};
+
 const Results = () => {
-  const { data } = useContext(AppContext);
+  const { data, isError, isLoading } = useContext(AppContext);
 
   return (
     <div className="p-6 bg-white rounded-md dark:bg-semiDarkBlue dark:text-white">

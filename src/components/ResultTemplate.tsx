@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { location, link, twitter, company } from "./svg";
 import { useContext } from "react";
